@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보처리방침 | 도심창고:함(HAAM)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #5A5A5A;
+    --text-muted: #8A8A8A;
+    --accent: #2C3E50;
+    --accent-light: #3498DB;
+    --border: #E8E8E8;
+    --highlight: #EBF5FB;
+    --chapter-bg: #F7F9FC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .site-header {
+    background: var(--accent);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 24px 16px;
+  }
+  .brand {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 4px;
+  }
+  .page-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .version-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+  }
+  .version-bar-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .version-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .version-btn {
+    padding: 6px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    background: transparent;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .version-btn:hover {
+    border-color: var(--accent-light);
+    color: var(--accent-light);
+  }
+  .version-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 500;
+  }
+  .version-current {
+    font-size: 11px;
+    background: #E8F5E9;
+    color: #2E7D32;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-left: 4px;
+  }
+  .content-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+  .terms-content {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 40px 36px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    animation: fadeIn 0.3s ease;
+  }
+  .terms-content h2.chapter {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 14px 18px;
+    background: var(--chapter-bg);
+    border-radius: 8px;
+    margin: 36px 0 20px;
+    border-left: 3px solid var(--accent);
+  }
+  .terms-content h2.chapter:first-child {
+    margin-top: 0;
+  }
+  .terms-content h3.article {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .terms-content p {
+    margin: 8px 0;
+    text-align: justify;
+    word-break: keep-all;
+  }
+  .terms-content p.bullet {
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .terms-content p.indent {
+    padding-left: 24px;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .terms-content p.group-header {
+    font-weight: 600;
+    margin-top: 16px;
+    color: var(--accent);
+  }
+  .terms-content p.example-note {
+    background: #FFF8E1;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 12px 0;
+  }
+  .terms-content .terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .terms-content .terms-table th {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .terms-content .terms-table td {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .terms-content .terms-table tbody tr:nth-child(even) {
+    background: var(--chapter-bg);
+  }
+  .terms-content .footer-info {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 24px;
+    text-align: center;
+  }
+  .terms-content .footer-info:first-of-type {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--accent-light);
+    text-decoration: none;
+  }
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  .revision-history {
+    margin-top: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px 36px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .revision-history h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .revision-history table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .revision-history th {
+    text-align: left;
+    padding: 8px 12px;
+    background: var(--chapter-bg);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .revision-history td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  @media (max-width: 640px) {
+    .header-inner { padding: 16px 16px 12px; }
+    .page-title { font-size: 19px; }
+    .version-bar-inner { padding: 10px 16px; }
+    .content-wrap { padding: 20px 12px 60px; }
+    .terms-content { padding: 24px 18px; border-radius: 8px; }
+    .revision-history { padding: 20px 18px; }
+    .terms-content h2.chapter { font-size: 15px; padding: 12px 14px; }
+    .terms-content h3.article { font-size: 14px; }
+    body { font-size: 14px; }
+    .terms-content .terms-table { font-size: 12px; }
+    .terms-content .terms-table th,
+    .terms-content .terms-table td { padding: 8px; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">도심창고:함 HAAM</div>
+    <div class="page-title">개인정보처리방침</div>
+  </div>
+</header>
+
+<div class="version-bar">
+  <div class="version-bar-inner">
+    <span class="version-label">방침 버전</span>
+    <button class="version-btn active" data-version="v1" onclick="switchVersion('v1')">
+      v1 · 2026.03.09 시행 <span class="version-current">현행</span>
+    </button>
+  </div>
+</div>
+
+<main class="content-wrap">
+  <div id="privacy-container" class="terms-content"></div>
+
+  <div class="revision-history">
+    <h4>개인정보처리방침 개정이력</h4>
+    <table>
+      <thead>
+        <tr><th>버전</th><th>시행일</th><th>구분</th><th>주요 변경사항</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>v1</td>
+          <td>2026. 3. 9.</td>
+          <td>제정</td>
+          <td>최초 제정</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="nav-link" href="https://www.haam.co.kr/terms">← 이용약관 보기</a>
+  </div>
+</main>
+
+<script>
+const privacyData = {
+  v1: `<h2 class="chapter">개인정보처리방침 개요</h2>
+<p>도심창고:함(HAAM)(이하 "회사")는 이용자의 개인정보를 소중히 여기며, 「개인정보 보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 관련 법령을 준수합니다.</p>
+<p>본 개인정보처리방침은 회사가 운영하는 도심창고:함(HAAM) 서비스(이하 "서비스") 이용과 관련하여 이용자의 개인정보를 어떻게 수집·이용·보관·파기·위탁하는지, 이용자의 권리와 그 행사 방법은 무엇인지 안내합니다.</p>
+<h3 class="article">제 1 조 (수집하는 개인정보의 항목)</h3>
+<p><strong>①</strong> 회사는 서비스 제공을 위해 다음의 개인정보를 수집합니다.</p>
+<p class="group-header"><strong>【필수 수집 항목】</strong></p>
+<table class="terms-table">
+<thead><tr>
+<th>구분</th>
+<th>수집 항목</th>
+<th>수집 목적</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>계약자 신원</td>
+<td>성명</td>
+<td>이용계약 체결 및 이용자 확인</td>
+</tr>
+<tr>
+<td>연락처</td>
+<td>휴대전화번호</td>
+<td>알림 발송, 계약 만료·연체 통지, 긴급 연락</td>
+</tr>
+<tr>
+<td>계약 정보</td>
+<td>보관함 번호, 계약 시작일·만료일, 이용 기간(개월), 결제 금액</td>
+<td>서비스 이용 관리, 만료 안내, 연체 관리</td>
+</tr>
+<tr>
+<td>보안 정보</td>
+<td>유닛 잠금 장치 보안코드</td>
+<td>유닛 잠금 해제 및 출입 통제 관리</td>
+</tr>
+<tr>
+<td>내부 관리 ID</td>
+<td>서비스 이용자 식별을 위한 내부 관리 식별자</td>
+<td>내부 계약 관리 시스템 이용자 식별 목적</td>
+</tr>
+</tbody>
+</table>
+<p class="group-header"><strong>【계약 종료 시 수집 항목 (보증금 반환용)】</strong></p>
+<table class="terms-table">
+<thead><tr>
+<th>구분</th>
+<th>수집 항목</th>
+<th>수집 목적</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>보증금 반환 계좌</td>
+<td>예금주명, 은행명, 계좌번호</td>
+<td>계약 종료 후 보증금 반환 처리</td>
+</tr>
+</tbody>
+</table>
+<p class="example-note"><em>※ 위 계좌 정보는 계약 종료 또는 보증금 반환 신청 시점에만 수집하며, 반환 완료 후 즉시 파기합니다.</em></p>
+<p class="group-header"><strong>【자동 수집 항목】</strong></p>
+<table class="terms-table">
+<thead><tr>
+<th>구분</th>
+<th>수집 항목</th>
+<th>수집 방법 및 목적</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>출입 기록</td>
+<td>QR코드 출입 이력 (출입 일시)</td>
+<td>출입 인증 시 자동 수집 / 출입 통제 및 보안 관리</td>
+</tr>
+<tr>
+<td>CCTV 영상</td>
+<td>시설 내·외부 촬영 영상</td>
+<td>CCTV 자동 녹화 / 시설 보안 및 도난·사고 예방</td>
+</tr>
+<tr>
+<td>예약 정보</td>
+<td>서비스 예약·신청 과정에서 수집되는 성명, 연락처, 예약 내용</td>
+<td>서비스 예약 이미지가 내부 관리 채널을 일시 경유하여 AI 분석 시스템으로 자동 추출·저장. 경유 완료 즉시 이미지 자동 삭제</td>
+</tr>
+<tr>
+<td>방문 예약 정보</td>
+<td>방문 희망 일시, 방문 목적</td>
+<td>방문 예약 접수 시 일정 관리 시스템에 자동 등록</td>
+</tr>
+<tr>
+<td>서비스 처리 기록</td>
+<td>처리 일시, 처리 유형 (고객 식별정보 포함 가능)</td>
+<td>서비스 운영 오류 추적 및 장애 대응 목적으로 자동 기록 / 24시간 경과 후 자동 삭제</td>
+</tr>
+</tbody>
+</table>
+<p><strong>②</strong> 회사는 만 14세 미만 아동의 개인정보를 수집하지 않으며, 서비스는 성인 대상 서비스입니다.</p>
+<p><strong>③</strong> 회사는 이용자의 고유식별정보(주민등록번호 등), 민감정보(건강정보·종교·정치적 견해 등)를 수집하지 않습니다.</p>
+<h3 class="article">제 2 조 (개인정보의 수집 방법)</h3>
+<p><strong>①</strong> 회사는 다음의 방법으로 개인정보를 수집합니다.</p>
+<p class="indent"><strong>1.</strong> 네이버 예약 페이지를 통한 이용 신청 및 결제 과정에서 이용자가 직접 입력</p>
+<p class="indent"><strong>2.</strong> 카카오 채널(도심창고_함(HAAM))을 통한 상담 및 계약 체결 과정</p>
+<p class="indent"><strong>3.</strong> 서비스 예약 정보가 자동화 운영 시스템을 통해 계약 관리 데이터베이스에 자동 연동·저장</p>
+<p class="indent"><strong>4.</strong> 출입 통제 시스템에 의한 출입 이력 자동 수집</p>
+<p class="indent"><strong>5.</strong> 시설 내 CCTV에 의한 영상 정보 자동 수집</p>
+<p class="indent"><strong>6.</strong> 서비스 이용 과정에서 운영 시스템에 의해 자동 생성·기록</p>
+<p class="indent"><strong>7.</strong> 계약 종료 또는 보증금 반환 신청 시 카카오 채널을 통한 계좌 정보 직접 수령</p>
+<h3 class="article">제 3 조 (개인정보의 수집 및 이용 목적)</h3>
+<p><strong>①</strong> 회사는 수집한 개인정보를 다음의 목적을 위해 이용합니다.</p>
+<table class="terms-table">
+<thead><tr>
+<th>이용 목적</th>
+<th>세부 내용</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>서비스 제공 및 계약 이행</td>
+<td>보관 서비스 계약 체결, 유닛 배정, 출입 권한 부여 및 관리, 잠금 장치 보안코드 발급·변경</td>
+</tr>
+<tr>
+<td>계약 관리 자동화</td>
+<td>계약 만료 D-7·D-0 알림 자동 발송, 연체 D+1·D+3·D+7 경고 발송, 계약 종료 후 이력 보관 처리</td>
+</tr>
+<tr>
+<td>고객 응대 및 불만 처리</td>
+<td>문의·불만 접수 및 처리, 분쟁 조정, 사고 발생 시 이용자 확인</td>
+</tr>
+<tr>
+<td>요금 청구 및 정산</td>
+<td>이용료 청구, 보증금 관리, 연체료 정산, 환불 처리</td>
+</tr>
+<tr>
+<td>보증금 반환</td>
+<td>계약 종료 후 보증금 정산 및 이용자 지정 계좌로 반환 처리</td>
+</tr>
+<tr>
+<td>시설 보안 및 안전 관리</td>
+<td>CCTV 운영, 출입 기록 관리, 긴급 상황 대응, 도난·분실·파손 발생 시 사고 조사</td>
+</tr>
+<tr>
+<td>법적 의무 이행</td>
+<td>전자상거래 관련 법률에 따른 거래 기록 보관, 수사기관 협조</td>
+</tr>
+<tr>
+<td>광고성 정보 발송 (선택)</td>
+<td>동의한 이용자에 한해 이벤트·할인 정보 카카오 알림 발송</td>
+</tr>
+</tbody>
+</table>
+<h3 class="article">제 4 조 (개인정보의 보유 및 이용 기간)</h3>
+<p><strong>①</strong> 회사는 원칙적으로 이용자의 개인정보를 이용 목적이 달성된 후 지체 없이 파기합니다. 단, 관계 법령에 따라 보존할 필요가 있는 경우 다음 기간 동안 보유합니다.</p>
+<table class="terms-table">
+<thead><tr>
+<th>보유 항목</th>
+<th>보유 기간</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>계약 관련 정보 (성명·연락처·계약내역·결제금액)</td>
+<td>계약 종료 후 5년</td>
+<td>전자상거래 등에서의 소비자 보호에 관한 법률 (계약·청약철회 기록 5년)</td>
+</tr>
+<tr>
+<td>대금 결제 기록</td>
+<td>5년</td>
+<td>전자상거래 등에서의 소비자 보호에 관한 법률</td>
+</tr>
+<tr>
+<td>민원·불만 처리 기록</td>
+<td>3년</td>
+<td>전자상거래 등에서의 소비자 보호에 관한 법률</td>
+</tr>
+<tr>
+<td>방문 예약 기록</td>
+<td>방문일로부터 1년</td>
+<td>서비스 운영 목적 및 분쟁 대비</td>
+</tr>
+<tr>
+<td>CCTV 영상</td>
+<td>촬영일로부터 60일</td>
+<td>개인정보 보호법 제25조, 시설 내 물품 도난·분실·파손 등 사고 발생 시 분쟁 해결 목적 (30일 초과 보관의 합리적 사유 명시)</td>
+</tr>
+<tr>
+<td>서비스 처리 기록 (운영 로그)</td>
+<td>24시간 (자동 삭제)</td>
+<td>서비스 운영 정책에 따른 자동 삭제</td>
+</tr>
+<tr>
+<td>잠금 장치 보안코드</td>
+<td>계약 종료 즉시 삭제</td>
+<td>계약 종료 후 불필요 정보</td>
+</tr>
+<tr>
+<td>QR 출입 기록</td>
+<td>1년</td>
+<td>보안 사고 발생 시 분쟁 대비</td>
+</tr>
+<tr>
+<td>보증금 반환 계좌 정보 (예금주명·은행명·계좌번호)</td>
+<td>반환 완료 후 즉시 삭제</td>
+<td>개인정보 최소화 원칙 — 반환 목적 달성 즉시 불필요</td>
+</tr>
+</tbody>
+</table>
+<p><strong>②</strong> 종료된 계약의 데이터는 별도 보관 공간으로 이관하여 보유 기간 이후 담당자가 직접 삭제합니다.</p>
+<h3 class="article">제 5 조 (개인정보의 파기 절차 및 방법)</h3>
+<p><strong>①</strong> 회사는 개인정보의 보유 기간이 경과하거나 처리 목적이 달성된 경우 지체 없이 해당 개인정보를 파기합니다.</p>
+<p><strong>②</strong> 파기 절차 및 방법은 다음과 같습니다.</p>
+<p class="bullet">▸ 전자적 파일 형태 (클라우드 기반 계약 관리 데이터, 예약 일정 데이터): 복구 불가능한 방법으로 영구 삭제</p>
+<p class="bullet">▸ CCTV 영상: 저장 매체의 자동 덮어쓰기 방식으로 60일 후 파기</p>
+<p class="bullet">▸ 서비스 처리 기록 (운영 로그): 자동화 삭제 시스템이 24시간 초과 데이터를 매일 자동 삭제</p>
+<p class="bullet">▸ 보증금 반환 계좌 정보: 반환 완료 확인 즉시 해당 정보 삭제</p>
+<p class="bullet">▸ 종이 문서가 있는 경우: 분쇄기 사용 또는 소각</p>
+<h3 class="article">제 6 조 (개인정보의 제3자 제공)</h3>
+<p><strong>①</strong> 회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다.</p>
+<p><strong>②</strong> 다음의 경우에는 예외적으로 개인정보를 제공할 수 있습니다.</p>
+<p class="indent"><strong>1.</strong> 이용자가 사전에 동의한 경우</p>
+<p class="indent"><strong>2.</strong> 법령에 의하여 제공이 요구되거나 수사기관이 법령에 정해진 절차와 방법에 따라 요청하는 경우</p>
+<p class="indent"><strong>3.</strong> 분쟁 해결, 민원 처리 등을 위해 불가피하게 필요한 경우</p>
+<h3 class="article">제 7 조 (개인정보 처리 업무의 위탁)</h3>
+<p><strong>①</strong> 회사는 원활한 서비스 운영을 위해 다음의 업체에 개인정보 처리를 위탁하고 있습니다.</p>
+<table class="terms-table">
+<thead><tr>
+<th>수탁업체 (서비스명)</th>
+<th>위탁 업무 내용</th>
+<th>위탁 개인정보 항목</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Solapi (솔라피)</td>
+<td>카카오 알림톡 및 문자메시지(SMS) 발송 대행 — 계약 확정, 결제 요청, 만료·연체 안내 등</td>
+<td>수신자 휴대전화번호, 발송 내용 (성명·계약 정보 포함)</td>
+</tr>
+<tr>
+<td>Google LLC</td>
+<td>클라우드 기반 계약 관리 데이터 저장 및 처리 서비스</td>
+<td>성명, 연락처, 계약 정보 전체, 처리 이력</td>
+</tr>
+<tr>
+<td>Google LLC</td>
+<td>일정 관리 서비스 — 방문 예약 일정 자동 등록·관리</td>
+<td>방문자 성명, 연락처, 방문 일시</td>
+</tr>
+<tr>
+<td>Google LLC</td>
+<td>AI 이미지 분석 서비스 — 서비스 예약 이미지에서 계약 정보 자동 추출. 유료 API 사용으로 이용자 데이터가 Google의 AI 모델 학습에 사용되지 않음</td>
+<td>예약 이미지 내 포함된 성명, 연락처, 예약 내용</td>
+</tr>
+<tr>
+<td>네이버 예약 시스템</td>
+<td>이용 신청 및 결제 처리 플랫폼</td>
+<td>네이버 서비스 개인정보처리방침에 따라 처리 (별도 적용)</td>
+</tr>
+<tr>
+<td>Telegram FZ-LLC</td>
+<td>서비스 예약 이미지의 AI 분석 시스템 전달을 위한 내부 관리 채널로 일시 경유. 분석 완료 즉시 해당 메시지 자동 삭제</td>
+<td>예약 이미지 내 성명, 연락처, 예약 내용 (일시 처리 후 즉시 자동 삭제)</td>
+</tr>
+</tbody>
+</table>
+<p class="example-note"><em>※ Google LLC에 위탁하는 업무(데이터 관리, 일정 관리, AI 분석)는 동일 수탁업체의 서로 다른 서비스로, 각 서비스별 위탁 범위는 위 표와 같습니다.</em></p>
+<p class="example-note"><em>※ Google LLC AI 분석 서비스는 유료 API를 통해 이용하고 있어, Google 서비스 약관에 따라 처리된 데이터가 Google의 AI 모델 학습 또는 개선 목적으로 사용되지 않습니다.</em></p>
+<p class="example-note"><em>※ Telegram FZ-LLC는 아랍에미리트 법인으로, 메시지 데이터는 싱가포르 소재 서버를 경유합니다. 이는 서비스 계약 이행을 위한 개인정보 국외 이전에 해당하며 (개인정보 보호법 제28조의8 제1항 제2호), 경유 즉시 자동 삭제되어 개인정보 잔존을 최소화합니다.</em></p>
+<p><strong>②</strong> 각 수탁업체(Google LLC, Solapi)의 서비스 이용약관 및 개인정보처리방침에 따라 개인정보 보호 의무가 적용됩니다. 회사는 각 업체의 약관 변경 시 본 방침을 검토·갱신합니다.</p>
+<p><strong>③</strong> 수탁업체 및 위탁 업무의 변경이 있는 경우 본 방침을 통해 공지합니다.</p>
+<h3 class="article">제 8 조 (자동화된 개인정보 처리 시스템 안내)</h3>
+<p><strong>①</strong> 회사는 서비스 운영의 효율화와 이용자에 대한 신속한 안내를 위해 자동화 운영 시스템을 운영합니다. 이 시스템은 이용자의 동의 및 계약 이행을 위해 다음과 같이 개인정보를 자동으로 처리합니다.</p>
+<h2 class="chapter">▶ 자동화 처리 개요</h2>
+<p><strong>①</strong> 예약 연동: 이용자가 예약 플랫폼을 통해 신청한 정보가 관리자 내부 채널을 일시 경유하여</p>
+<p>AI 분석 시스템으로 전달되고, 계약 관리 데이터베이스에 자동 저장됩니다.</p>
+<p>경유에 사용된 이미지는 분석 완료 즉시 자동 삭제됩니다.</p>
+<p><strong>②</strong> 알림 발송: 계약 만료 D-7·D-0, 연체 발생 시 이용자 휴대전화번호로 알림이 자동 발송됩니다.</p>
+<p>(발송 대행: Solapi)</p>
+<p><strong>③</strong> 이력 관리: 계약이 종료된 건은 별도 보관 공간으로 자동 이관되며, 운영 처리 기록은</p>
+<p>24시간 경과 후 자동 삭제됩니다.</p>
+<p><strong>②</strong> 자동화 시스템에 의한 처리에 이의가 있거나 사람에 의한 검토를 요청하는 경우 카카오 채널(도심창고_함(HAAM))로 문의하실 수 있습니다.</p>
+<p><strong>③</strong> 회사는 이용자에게 중요한 영향을 미치는 결정(계약 해지, 연체 처리 등)에 대해서는 자동화 처리 결과를 담당자가 최종 확인하는 절차를 거칩니다.</p>
+<h3 class="article">제 9 조 (영상정보처리기기(CCTV) 운영·관리)</h3>
+<p><strong>①</strong> 회사는 시설 보안 및 안전 관리 목적으로 CCTV를 운영합니다.</p>
+<table class="terms-table">
+<thead><tr>
+<th>항목</th>
+<th>내용</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>설치 근거</td>
+<td>개인정보 보호법 제25조 제1항 제2호 (범죄의 예방 및 수사), 동항 제3호 (시설안전 및 화재 예방)</td>
+</tr>
+<tr>
+<td>설치 목적</td>
+<td>시설 내 도난·분실·파손 예방 및 사고 기록, 화재·침수 등 재난 대응, 무단 침입 방지</td>
+</tr>
+<tr>
+<td>설치 위치</td>
+<td>시설 내부 4대, 출입구 1대  (총 5대)</td>
+</tr>
+<tr>
+<td>촬영 시간</td>
+<td>24시간 연속 녹화</td>
+</tr>
+<tr>
+<td>영상 보관 기간</td>
+<td>촬영일로부터 60일※ 셀프스토리지 특성상 계약 종료 후 물품 도난·분실·파손 분쟁이 30일 이후 접수될 수 있어, 분쟁 해결을 위한 합리적 사유에 근거하여 60일로 설정 (개인정보 보호법 표준지침 제41조 제2항 단서 적용)</td>
+</tr>
+<tr>
+<td>파기 방법</td>
+<td>보관 기간 경과 후 저장 매체 자동 덮어쓰기 방식으로 영구 파기</td>
+</tr>
+<tr>
+<td>영상 열람·제공</td>
+<td>원칙적으로 외부 제공 금지. 수사기관의 요청(영장 등 적법한 절차) 또는 법원 명령이 있는 경우에 한해 제공</td>
+</tr>
+<tr>
+<td>관리 책임자</td>
+<td>이은호 (대표자)</td>
+</tr>
+<tr>
+<td>촬영 범위</td>
+<td>시설 내·외부 보안 구역 (복도·출입 통로 포함). 유닛 내부는 촬영하지 않음</td>
+</tr>
+<tr>
+<td>열람 요구 방법</td>
+<td>카카오 채널(도심창고_함(HAAM))로 요청. 촬영 장소, 기록 시간, 청구 목적을 기재하여 신청</td>
+</tr>
+</tbody>
+</table>
+<p class="example-note"><em>※ CCTV 촬영 사실은 시설 입구에 안내 표지판으로 고지합니다.</em></p>
+<h3 class="article">제 10 조 (정보주체의 권리·의무 및 행사 방법)</h3>
+<p><strong>①</strong> 이용자는 회사에 대해 언제든지 다음의 권리를 행사할 수 있습니다.</p>
+<p class="indent"><strong>1.</strong> 개인정보 열람 요구</p>
+<p class="indent"><strong>2.</strong> 오류 등이 있을 경우 정정 요구</p>
+<p class="indent"><strong>3.</strong> 삭제 요구 (단, 법령에 따라 보관이 의무화된 정보는 삭제 불가)</p>
+<p class="indent"><strong>4.</strong> 처리 정지 요구</p>
+<p class="indent"><strong>5.</strong> 개인정보 이동 요청 (해당하는 경우)</p>
+<p><strong>②</strong> 위 제1항의 권리 행사는 카카오 채널(도심창고_함(HAAM))을 통하여 요청하실 수 있으며, 회사는 지체 없이 (원칙 10일 이내) 조치합니다.</p>
+<p><strong>③</strong> 이용자가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우, 회사는 정정 또는 삭제를 완료하기 전까지 해당 개인정보를 이용하거나 제공하지 않습니다.</p>
+<p><strong>④</strong> 권리 행사는 이용자의 법정대리인이나 위임을 받은 자 등 대리인을 통해서도 할 수 있습니다. 이 경우 위임장 등 대리권을 증명하는 서류를 제출하여야 합니다.</p>
+<p><strong>⑤</strong> 이용자는 개인정보 보호법 등 관계 법령을 위반하여 회사가 처리하고 있는 이용자 본인이나 타인의 개인정보 및 사생활을 침해하여서는 안 됩니다.</p>
+<h3 class="article">제 11 조 (개인정보의 안전성 확보 조치)</h3>
+<p><strong>①</strong> 회사는 개인정보 보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적·관리적·물리적 조치를 취하고 있습니다.</p>
+<h2 class="chapter">■ 기술적 조치</h2>
+<p class="bullet">▸ 클라우드 기반 계약 관리 데이터의 접근 권한을 업무상 필요한 담당자에게만 부여하며, 역할에 따라 열람·편집·관리자 권한을 구분하여 적용</p>
+<p class="bullet">▸ 서비스 연동 API 인증 정보는 시스템 환경변수로 별도 분리하여 보관</p>
+<p class="bullet">▸ 알림 발송 API에 HMAC 인증 방식 적용으로 보안 강화</p>
+<p class="bullet">▸ 동시 처리로 인한 데이터 충돌 방지를 위한 잠금(Lock) 처리 적용</p>
+<p class="bullet">▸ 서비스 처리 기록 24시간 자동 삭제로 불필요한 개인정보 최소화</p>
+<p class="bullet">▸ 내부 관리 채널(메신저)을 통해 경유되는 예약 이미지는 AI 분석 완료 즉시 자동 삭제하여 잔존 개인정보 최소화</p>
+<h2 class="chapter">■ 관리적 조치</h2>
+<p class="bullet">▸ 개인정보에 접근하는 담당자를 업무상 필요한 최소 인원으로 제한하며, 접근 권한자 명단을 별도 관리</p>
+<p class="bullet">▸ 개인정보 취급 담당자 전원에 대해 개인정보 비밀유지 서약을 받고, 정기적인 개인정보 보호 교육 실시 및 기록 보관</p>
+<p class="bullet">▸ 담당자 변경(채용·퇴직·이동) 시 즉시 접근 권한을 조정하며, 퇴직자의 계정 및 접근 권한 즉시 회수</p>
+<p class="bullet">▸ 개인정보처리방침의 정기적 검토 및 갱신</p>
+<p class="bullet">▸ 위탁업체에 대한 개인정보 보호 의무 약관 준수 확인</p>
+<h2 class="chapter">■ 물리적 조치</h2>
+<p class="bullet">▸ 시설 내 CCTV 5대 운영 (내부 4대, 출입구 1대)</p>
+<p class="bullet">▸ QR코드 기반 출입 통제 시스템 운영 (계약 종료 시 출입 권한 자동 소멸)</p>
+<p class="bullet">▸ 유닛별 개별 잠금 장치 보안코드를 통한 물리적 보안</p>
+<h3 class="article">제 12 조 (개인정보 보호책임자)</h3>
+<p><strong>①</strong> 회사는 개인정보 처리에 관한 업무를 총괄하고, 이용자의 불만 처리 및 피해 구제를 위해 아래와 같이 개인정보 보호책임자 및 담당자를 지정하고 있습니다.</p>
+<p class="group-header"><strong>【개인정보 보호책임자】</strong></p>
+<table class="terms-table">
+<thead><tr>
+<th>구분</th>
+<th>내용</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>성명</td>
+<td>이은호</td>
+</tr>
+<tr>
+<td>직위</td>
+<td>대표자</td>
+</tr>
+<tr>
+<td>역할</td>
+<td>개인정보 처리 업무 총괄, 방침 승인, 이의·분쟁 최종 처리</td>
+</tr>
+<tr>
+<td>연락처</td>
+<td>카카오 채널: 도심창고_함(HAAM) (채널 ID: urban_haam)</td>
+</tr>
+<tr>
+<td>처리 시간</td>
+<td>평일 10:00 ~ 17:00 (공휴일 제외)</td>
+</tr>
+</tbody>
+</table>
+<p class="group-header"><strong>【개인정보 취급 담당자】</strong></p>
+<table class="terms-table">
+<thead><tr>
+<th>구분</th>
+<th>내용</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>담당자 수</td>
+<td>대표자 포함 최대 3인 이내</td>
+</tr>
+<tr>
+<td>접근 범위</td>
+<td>업무 역할에 따라 열람·편집·관리 권한을 구분하여 부여</td>
+</tr>
+<tr>
+<td>비밀유지</td>
+<td>전원 개인정보 비밀유지 서약 체결</td>
+</tr>
+<tr>
+<td>교육</td>
+<td>연 1회 이상 개인정보 보호 교육 이수</td>
+</tr>
+<tr>
+<td>문의 연락처</td>
+<td>카카오 채널: 도심창고_함(HAAM) (채널 ID: urban_haam)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>②</strong> 이용자는 서비스 이용 과정에서 발생하는 모든 개인정보 보호 관련 문의, 불만 처리, 피해 구제 등에 관한 사항을 개인정보 보호책임자 또는 담당자에게 문의하실 수 있습니다. 회사는 이용자의 문의에 지체 없이 답변하고 처리하겠습니다.</p>
+<h3 class="article">제 13 조 (개인정보 침해 신고·상담 및 권익 구제)</h3>
+<p><strong>①</strong> 이용자는 개인정보 침해로 인한 구제를 받기 위해 다음 기관에 분쟁 해결이나 상담 등을 신청할 수 있습니다.</p>
+<table class="terms-table">
+<thead><tr>
+<th>기관명</th>
+<th>업무</th>
+<th>연락처</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>개인정보 분쟁조정위원회</td>
+<td>개인정보 분쟁 조정 신청</td>
+<td>국번없이 1833-6972  /  www.kopico.go.kr</td>
+</tr>
+<tr>
+<td>개인정보 침해 신고센터 (한국인터넷진흥원)</td>
+<td>개인정보 침해 신고, 상담</td>
+<td>국번없이 118  /  privacy.kisa.or.kr</td>
+</tr>
+<tr>
+<td>대검찰청 사이버수사과</td>
+<td>인터넷 범죄 신고</td>
+<td>국번없이 1301  /  www.spo.go.kr</td>
+</tr>
+<tr>
+<td>경찰청 사이버안전국</td>
+<td>인터넷 범죄 신고</td>
+<td>국번없이 182  /  ecrm.cyber.go.kr</td>
+</tr>
+</tbody>
+</table>
+<h3 class="article">제 14 조 (쿠키(Cookie) 등 자동수집 장치에 관한 사항)</h3>
+<p>회사는 별도의 인터넷 홈페이지를 운영하지 않으므로 쿠키(Cookie)를 수집하지 않습니다. 단, 서비스 이용을 위해 연결되는 외부 플랫폼(네이버 예약 페이지, 카카오 채널)의 쿠키 및 개인정보 수집에 관해서는 각 플랫폼의 개인정보처리방침이 적용됩니다.</p>
+<h3 class="article">제 15 조 (개인정보처리방침의 변경)</h3>
+<p><strong>①</strong> 본 개인정보처리방침은 관련 법령 및 서비스 운영 정책의 변경에 따라 개정될 수 있습니다.</p>
+<p><strong>②</strong> 방침이 변경되는 경우 변경 사항을 카카오 채널(도심창고_함(HAAM)) 및 네이버 예약 페이지에 시행 7일 전부터 공지합니다. 이용자에게 불리한 내용의 변경인 경우에는 시행 30일 전부터 공지합니다.</p>
+<p><strong>③</strong> 본 방침은 2026년 3월 9일부터 시행됩니다.</p>
+<h2 class="chapter">부 칙</h2>
+<table class="terms-table">
+<thead><tr>
+<th>시행일</th>
+<th>본 방침은 2026년 3월 9일부터 시행합니다.</th>
+</tr></thead>
+<tbody>
+</tbody>
+</table>
+<p class="footer-info">도심창고:함(HAAM)  |  대표자: 이은호  |  사업자번호: 680-04-03868</p>
+<p class="footer-info">서울시 동작구 상도로 60길 2, B1  |  카카오 채널: 도심창고_함(HAAM)  |  채널 ID: urban_haam</p>`
+};
+
+function switchVersion(ver) {
+  const container = document.getElementById('privacy-container');
+  container.style.animation = 'none';
+  container.offsetHeight;
+  container.style.animation = 'fadeIn 0.3s ease';
+  container.innerHTML = privacyData[ver];
+
+  document.querySelectorAll('.version-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.version === ver);
+  });
+  history.replaceState(null, '', '#' + ver);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const hash = window.location.hash.replace('#', '');
+switchVersion(hash || 'v1');
+</script>
+
+</body>
+</html>
